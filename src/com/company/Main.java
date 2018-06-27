@@ -1,21 +1,77 @@
 package com.company;
+import javax.print.attribute.standard.PrinterMessageFromOperator;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+
+import static java.lang.Math.sqrt;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
-        Single();
-        Horizontal(in);
-        Vertical(in);
-        Right(in);
-        Isosceles(in);
-        Diamond(in);
-        DiamondWithName(in);
-        FizzBuzz();
+//
+//        Single();
+//        Horizontal(in);
+//        Vertical(in);
+//        Right(in);
+//        Isosceles(in);
+//        Diamond(in);
+//        DiamondWithName(in);
+//        FizzBuzz();
+        Primes(in);
 
     }
+
+    private static void Primes(Scanner in) {
+        System.out.println("Enter n for prime factors:");
+        Integer n = Integer.parseInt(in.nextLine());
+
+        Queue<Integer> factors = generate(n);
+
+        for (Object object : factors) {
+            System.out.print(object);
+            System.out.print(' ');
+        }
+        System.out.println();
+    }
+
+    private static Queue<Integer> generate(Integer n) {
+        //come back to this
+        Queue<Integer> factors = new LinkedList<>();
+
+        for (int i = 2; i < sqrt(n); i++) {
+            if (n % i == 0) {
+                factors.add(i);
+            }
+        }
+
+
+//        if (n % 2 == 0) {
+//            factors.add(2);
+//            n = n/2;
+//        } else {
+//            for (int j = 3; j < sqrt(n); j += 2) {
+//                if (n % j == 0) {
+//                    factors.add(j);
+//                    n = n/j;
+//                }
+//            }
+//        }
+
+
+        return factors;
+
+//    Write a method Generate(int n) that given an integer N will return a list of integers
+//    such that the numbers are the factors of N and are arranged in increasing numerical order.
+//
+//    For example, generate(1) should return an empty list and generate(30) should return the numbers: 2,3,5.
+
+
+
+    }
+
+
 
     private static void PrintLnFizzBuzz(Integer n) {
         if (n % 3 == 0) {
