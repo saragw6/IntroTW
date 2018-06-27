@@ -6,24 +6,64 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-//        single();
-//        horizontal(in);
-//        vertical(in);
-//        right(in);
-        isosceles(in);
-        diamond(in);
-        //leftSideDiamond(1,1);
+        Single();
+        Horizontal(in);
+        Vertical(in);
+        Right(in);
+        Isosceles(in);
+        Diamond(in);
+        DiamondWithName(in);
+        FizzBuzz();
+
+    }
+
+    private static void PrintLnFizzBuzz(Integer n) {
+        if (n % 3 == 0) {
+            System.out.print("Fizz");
+        }
+        if (n % 5 == 0) {
+            System.out.print("Buzz");
+        } else if (n % 3 != 0) {
+            System.out.print(n);
+        }
+
+        System.out.println();
 
     }
 
 
-    private static void diamond(Scanner in) {
+    private static void FizzBuzz() {
+        for (int i = 1; i < 101; i++) {
+            PrintLnFizzBuzz(i);
+        }
+    }
+
+    private static void DiamondWithName(Scanner in) {
+        System.out.println("Enter n for diamond with name:");
+        Integer diamond = Integer.parseInt(in.nextLine());
+
+
+        for (int i = 0; i < diamond - 1; i++) {
+            leftSideTriangle(diamond - (i + 1), i);
+            System.out.print('*');
+            rightSideTriangle(diamond - (i + 1), i);
+            System.out.println();
+        }
+        System.out.println("Sara");
+        for (int j = diamond - 2; j >= 0; j--) {
+            leftSideTriangle(diamond - (j + 1), j);
+            System.out.print('*');
+            rightSideTriangle(diamond - (j + 1), j);
+            System.out.println();
+        }
+
+    }
+
+
+    private static void Diamond(Scanner in) {
         System.out.println("Enter n for diamond:");
         Integer diamond = Integer.parseInt(in.nextLine());
 
-        //--*-- 2, 0
-        //-***- 1, 1
-        //***** 0, 2
 
         for (int i = 0; i < diamond; i++) {
             leftSideTriangle(diamond - (i + 1), i);
@@ -58,13 +98,9 @@ public class Main {
         }
     }
 
-    private static void isosceles(Scanner in) {
+    private static void Isosceles(Scanner in) {
         System.out.println("Enter n for isosceles triangle:");
         Integer isosceles = Integer.parseInt(in.nextLine());
-
-        //--*-- 2, 0
-        //-***- 1, 1
-        //***** 0, 2
 
         for (int i = 0; i < isosceles; i++) {
             leftSideTriangle(isosceles - (i + 1), i);
@@ -74,7 +110,7 @@ public class Main {
         }
     }
 
-    private static void right(Scanner in) {
+    private static void Right(Scanner in) {
         System.out.println("Enter n for right triangle:");
         Integer right = Integer.parseInt(in.nextLine());
         for (int i = 0; i < right; i++) {
@@ -85,16 +121,16 @@ public class Main {
         }
     }
 
-    private static void vertical(Scanner in) {
+    private static void Vertical(Scanner in) {
         System.out.println("Enter n for vertical line:");
         Integer vertical = Integer.parseInt(in.nextLine());
         for (int i = 0; i < vertical; i++) {
-            single();
+            Single();
         }
         System.out.println();
     }
 
-    private static void horizontal(Scanner in) {
+    private static void Horizontal(Scanner in) {
         System.out.println("Enter n for horizontal line:");
         Integer horizontal = Integer.parseInt(in.nextLine());
         for (int i = 0; i < horizontal; i++) {
@@ -103,7 +139,7 @@ public class Main {
         System.out.println();
     }
 
-    private static void single() {
+    private static void Single() {
         System.out.println('*');
     }
 }
