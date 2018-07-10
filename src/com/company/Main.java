@@ -1,10 +1,5 @@
 package com.company;
-import javax.print.attribute.standard.PrinterMessageFromOperator;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
-
-import static java.lang.Math.sqrt;
 
 public class Main {
 
